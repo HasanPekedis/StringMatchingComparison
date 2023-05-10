@@ -2,7 +2,6 @@ import sys
 import time
 
 
-start_time = time.time()
 
 comparisons = 0
 
@@ -191,6 +190,7 @@ word = input("Enter the word: ").strip()
 
 method = input("Enter how the string should be found: ")
 
+start_time = time.time()
 
 if method == "brute":
     length = len(word) - 1
