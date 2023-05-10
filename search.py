@@ -85,6 +85,7 @@ def horspoolsearch():
     global length
     global comparisons
     global line
+    global btable
     size = len(line)
     i = length
     a = length
@@ -116,6 +117,8 @@ def boyermoore():
     global length
     global comparisons
     global line
+    global btable
+    global gtable
     size = len(line)
     sizegtable = len(gtable) - 1
     i = length
