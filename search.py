@@ -47,36 +47,39 @@ def congoodtable():
     lgtable = 1
     le = lgtable
     # shortcut is if pattern does not have same pre letter with any k value (EX: ...323...323 while k = 2)
-    # used for terminatind function
+    # used for terminating function
     shortcut = True
-    while lgtable < length+1:
-        if word[l1] == word[i]:
+    while lgtable < (length+1):
+        if word[i] == word[l1]:
             if not le:
-                #false condition
+                # false condition
                 shortcut = False
-                l1 = length
                 le = lgtable
+                l1 = length
             else:
                 le -= 1
                 l1 -= 1
+                i -= 1
         else:
             if not le:
-                #true condition
-                lgtable += 1
+                # true condiition
                 gtable.append(l1 - i)
+                lgtable += 1
                 i = length - btable[word[length]]
+            elif le == lgtable:
+                i -= 1
             l1 = length
             le = lgtable
-            continue
-        if not i:
-            lgtable += 1
+        if i == -1:
+            print(lgtable)
             gtable.append(l1 + 1)
-            i = length - btable[word[length]] + 1
-            l1 = length
-            le = lgtable
+            lgtable += 1
             if shortcut:
                 return
-        i -= 1
+            le = lgtable
+            l1 = length
+            i = length - btable[word[length]]
+
 
 
 def horspoolsearch():
@@ -219,7 +222,7 @@ print(btable)
 print(gtable)
 print("Number of comparisons: " + str(comparisons))
 
-with open('test.html', 'w') as file:
+with open('textSample1.html', 'w') as file:
     file.writelines(lines)
     
 
